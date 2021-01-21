@@ -31,7 +31,6 @@ public class Input {
                 continue;
             }
             System.out.println(ConsoleColors.RED_BOLD + "Invalid argument!" + ConsoleColors.RESET);
-            continue;
         }
     }
 }

@@ -2,14 +2,9 @@ package game;
 
 import game.gameboard.Board;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 public class Display {
 
-    private String space = "    ";
+    private final String space = "    ";
 
     private Board board;
 

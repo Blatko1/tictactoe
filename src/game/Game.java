@@ -4,11 +4,6 @@ import game.assets.colors.ConsoleColors;
 import game.gameboard.Board;
 import game.players.PlayerType;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class Game {
 
     private int ROUND = 1;
@@ -39,10 +34,10 @@ public class Game {
             int in = Integer.parseInt(input);
             if(board.validateNewMove(in, PlayerType.CRISS)){
 
-                if(board.chechWinner() != PlayerType.BLANK){
+                if(board.checkWinner() != PlayerType.BLANK){
                     d.clearScreen();
                     d.drawBoard();
-                    System.out.println("Winner is: " + board.chechWinner().getType());
+                    System.out.println("Winner is: " + board.checkWinner().getType());
                     break;
                 }
 

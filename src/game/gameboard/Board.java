@@ -11,7 +11,7 @@ public class Board {
 
     private HashMap<Integer, PlayerType> boardMap;
 
-    public void Board(){
+    public Board(){
 
     }
 
@@ -34,7 +34,7 @@ public class Board {
         return false;
     }
 
-    public PlayerType chechWinner(){
+    public PlayerType checkWinner(){
         List criss = Arrays.asList(PlayerType.CRISS, PlayerType.CRISS, PlayerType.CRISS);
         List cross = Arrays.asList(PlayerType.CROSS, PlayerType.CROSS, PlayerType.CROSS);
 
@@ -52,7 +52,7 @@ public class Board {
             }
         }
 
-        //Check all coloumns.
+        //Check all columns.
         for(int m = 2;m>=0;m--){
             List current = new ArrayList();
             for(int n = 1;n<4;n++){
@@ -71,7 +71,7 @@ public class Board {
             List current = new ArrayList();
             for(int n = 1;n<4;n++){
                 current.add(getType(counter));
-                counter+=4*Math.abs((m-1)*1);
+                counter+=4*Math.abs(m-1);
                 counter+=m*2;
             }
             if(current.equals(criss)){
