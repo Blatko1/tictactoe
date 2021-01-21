@@ -1,4 +1,4 @@
-package game.players.PlayerAI;
+package game.players.CPU;
 
 import game.players.Player;
 

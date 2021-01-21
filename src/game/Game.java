@@ -7,55 +7,72 @@ import game.players.PlayerType;
 public class Game {
 
     private int ROUND = 1;
+    private boolean gameLoop = true;
 
     public Game(){
 
     }
 
     public void start(){
+        gameLoop = true;
         Board board = new Board();
         Display d = new Display(board);
         board.initBoard();
         d.clearScreen();
-        while(true){
+        while(gameLoop){
             d.showInformation(ROUND);
             d.drawBoard();
-            String input = Input.getNextMove();
-            if(input.equals("stop") || input.equals("exit") || input.equals("close")){
-                System.out.println(ConsoleColors.RED_BOLD + "Closing the Game!" + ConsoleColors.RESET);
-                try {
-                    Thread.sleep(750);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                d.clearScreen();
-                break;
-            }
-            int in = Integer.parseInt(input);
-            if(board.validateNewMove(in, PlayerType.CRISS)){
+            playerMove(PlayerType.CRISS, board, d);
+            cpuMove(PlayerType.CROSS, board, d);
+        }
+    }
+
+    public void playerMove(PlayerType type, Board board, Display display){
+        while(true){
+            int input = Input.getNextMove(display);
+            if(board.validateNewMove(input, type)){
 
                 if(board.checkWinner() != PlayerType.BLANK){
-                    d.clearScreen();
-                    d.drawBoard();
+                    display.clearScreen();
+                    display.drawBoard();
                     System.out.println("Winner is: " + board.checkWinner().getType());
-                    break;
+                    stopGame();
                 }
 
-                ROUND++;
-                d.clearScreen();
-                continue;
+                else{
+                    ROUND++;
+                    display.clearScreen();
+                }
+                break;
             }
-            d.clearScreen();
+            display.clearScreen();
             System.out.println(ConsoleColors.RED_BOLD + "That position is  already taken! Type a number with a free position!\n" + ConsoleColors.RESET);
         }
     }
 
-    public void stop(){
+    public void cpuMove(PlayerType type, Board board, Display display){
+        while(true){
+            int input = Input.nextCPUMove();
+            if(board.validateNewMove(input, type)){
 
+                if(board.checkWinner() != PlayerType.BLANK){
+                    display.clearScreen();
+                    display.drawBoard();
+                    System.out.println("Winner is: " + board.checkWinner().getType());
+                    stopGame();
+                }
+
+                else{
+                    ROUND++;
+                    display.clearScreen();
+                }
+                break;
+            }
+        }
     }
 
-    public void nextPlayer(){
-
+    public void stopGame(){
+        Thread.
     }
 
 }
