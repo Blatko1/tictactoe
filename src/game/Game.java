@@ -39,10 +39,10 @@ public class Game {
             int in = Integer.parseInt(input);
             if(board.validateNewMove(in, PlayerType.CRISS)){
 
-                if(chechWinner(board) != PlayerType.BLANK){
+                if(board.chechWinner() != PlayerType.BLANK){
                     d.clearScreen();
                     d.drawBoard();
-                    System.out.println("Winner is: " + chechWinner(board).getType());
+                    System.out.println("Winner is: " + board.chechWinner().getType());
                     break;
                 }
 
@@ -61,56 +61,6 @@ public class Game {
 
     public void nextPlayer(){
 
-    }
-
-    public PlayerType chechWinner(Board b){
-        List criss = Arrays.asList(PlayerType.CRISS, PlayerType.CRISS, PlayerType.CRISS);
-        List cross = Arrays.asList(PlayerType.CROSS, PlayerType.CROSS, PlayerType.CROSS);
-
-        //Check all rows.
-        for(int m = 0;m<3;m++){
-            List current = new ArrayList();
-            for(int n = 1;n<4;n++){
-                current.add(b.getType(n+m*3));
-            }
-            if(current.equals(criss)){
-                return PlayerType.CRISS;
-            }
-            if(current.equals(cross)){
-                return PlayerType.CROSS;
-            }
-        }
-
-        //Check all coloumns.
-        for(int m = 2;m>=0;m--){
-            List current = new ArrayList();
-            for(int n = 1;n<4;n++){
-                current.add(b.getType(n*3-m));
-            }
-            if(current.equals(criss)){
-                return PlayerType.CRISS;
-            }
-            if(current.equals(cross)){
-                return PlayerType.CROSS;
-            }
-        }
-
-        //Check all diagonals.
-        for(int m = 1;m<3;m++){
-            List current = new ArrayList();
-            for(int n = 1;n<4;n++){
-                current.add(/*b.getType(*/n*2-6+m*5/*)*/);
-            }
-            System.out.println(current.toString());
-            if(current.equals(criss)){
-                return PlayerType.CRISS;
-            }
-            if(current.equals(cross)){
-                return PlayerType.CROSS;
-            }
-        }
-
-        return PlayerType.BLANK;
     }
 
 }
