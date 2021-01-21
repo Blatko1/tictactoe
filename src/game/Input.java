@@ -19,7 +19,7 @@ public class Input {
             if(in.equals("stop") || in.equals("exit") || in.equals("close")){
                 System.out.println(ConsoleColors.RED_BOLD + "Closing the Game!" + ConsoleColors.RESET);
                 try {
-                    Thread.sleep(5);
+                    Thread.sleep(750);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -45,8 +45,7 @@ public class Input {
 
     public static int nextCPUMove(){
         Random rand = new Random();
-        int move = rand.nextInt(9)+1;
 
-        return move;
+        return rand.nextInt(9)+1;
     }
 }

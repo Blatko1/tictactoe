@@ -82,6 +82,11 @@ public class Board {
             }
             counter = 3;
         }
+        List board = new ArrayList();
+        for(int i = 1;i<10;i++){
+            board.add(getType(i));
+        }
+        if(!board.contains(PlayerType.BLANK)) return PlayerType.TIE;
 
         return PlayerType.BLANK;
     }

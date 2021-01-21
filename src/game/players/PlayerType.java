@@ -3,7 +3,8 @@ package game.players;
 public enum PlayerType {
     CRISS("X"),
     CROSS("O"),
-    BLANK(" ");
+    BLANK(" "),
+    TIE("TIE");
 
     String type;
 
