@@ -15,7 +15,7 @@ then run the game by:
 
 - ***Game is still not playable and will be in few days.***
 
-### Stuff that will (*may*) be added:
+### Stuff that will (*may*)be added:
 
 - Playable against another player on local computer
 - AI player
