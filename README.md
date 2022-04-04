@@ -1,6 +1,6 @@
 # TicTacToe Game
 
-This is a popular TicTacToe game where 2 players are playing against each other. **It is currently in development.**
+This is a popular TicTacToe game where 2 players are playing against each other.
 
 It is played in your computer's console. You can run it by navigating to **src** folder:
 - cd <path\>/src
@@ -13,7 +13,7 @@ then run the game by:
 
 ## In development
 
-- ***Game is still not playable and will be in few days.***
+  - never will be finished
 
 ### Stuff that will (*may*)be added:
 
